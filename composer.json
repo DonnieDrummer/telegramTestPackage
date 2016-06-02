@@ -1,0 +1,19 @@
+{
+    "name": "donnie/telegram-bot",
+    "authors": [
+        {
+            "name": "Donnie Drummer",
+            "email": "donnie.il.drummer@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "predis/predis": "^1.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Donnie\\TelegramBot\\": "src"
+        }
+    }
+}
