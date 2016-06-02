@@ -8,7 +8,15 @@
 
 namespace Donnie\TelegramBot;
 
+
 class TelegramBot
 {
+    protected $keyboardType;
+    
+    public function reply($conversation, $message)
+    {
+        
+    }
+    
 
 }

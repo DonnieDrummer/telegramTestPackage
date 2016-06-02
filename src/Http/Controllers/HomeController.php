@@ -8,7 +8,14 @@
 
 namespace Donnie\TelegramBot\Http\Controllers;
 
-class HomeController
-{
+use Illuminate\Routing\Controller;
+use Donnie\TelegramBot\Builders\Answer;
+use Illuminate\Http\Request;
 
-}   
+class HomeController extends Controller
+{
+    public function getIndexAction(Request $request)
+    {
+        \Log::alert(\GuzzleHttp\json_encode($request->all()));
+    }
+}
