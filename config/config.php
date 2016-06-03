@@ -10,5 +10,5 @@ return [
 
     'bot_token' => '194593835:AAF0mWHm8QbJysVYk7Ip1CNcFyJrHjQpQmc',
     'api_url' => 'https://api.telegram.org',
-    
+    'webhook_url' => 'https://90dbef27.ngrok.io/telegram',
 ];

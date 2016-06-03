@@ -8,15 +8,34 @@
 
 namespace Donnie\TelegramBot;
 
+use GuzzleHttp\Client;
+use Config;
 
 class TelegramBot
 {
-    protected $keyboardType;
+    protected $api;
+    protected $client;
     
+    public function __construct()
+    {
+        $this->client = new Client();
+        $this->api_url = Config::get('telegramBot.api_url') . '/bot' . Config::get('telegramBot.bot_token') . '/';
+    }
+
+    public function initWebhook()
+    {
+        echo $this->api_url . 'setWebhook?url=' . Config::get('telegramBot.webhook_url');
+        $this->client->request('GET', $this->api_url . 'setWebhook?url=' . Config::get('telegramBot.webhook_url'));
+    }
+
     public function reply($conversation, $message)
     {
-        
+        $response = $this->client->request('POST', $this->api_url . 'sendMessage', [
+            'form_params' => [
+                'chat_id' => $conversation->getChatId(),
+                'text' => $message,
+                'parse_mode' => 'html'
+            ]
+        ]);
     }
-    
-
 }

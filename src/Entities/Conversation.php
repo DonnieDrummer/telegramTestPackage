@@ -22,6 +22,12 @@ class Conversation
      * @var
      */
     protected $chatId;
+    
+    public function __construct($userId, $chatId)
+    {
+        $this->userId = $userId;
+        $this->chatId = $chatId;
+    }
 
     /**
      * @return mixed

@@ -26,17 +26,28 @@ class Answer
     /**
      * Generate answer to user.
      * 
-     * @param $number
+     * @param $value
      * @return string|integer
      */
-    public static function generate($number)
+    public static function generate($value)
     {
         $return = '';
-
-        if (($number % 3) == 0) $return .= self::FIZZ;
-        if (($number % 5) == 0) $return .= self::BUZZ;
-
-        return ($return) ? : $number;
+        
+        if (is_numeric($value)) {
+            if ($value >=1 && $value <= 100) {
+                if (($value % 3) == 0) $return .= self::FIZZ;
+                if (($value % 5) == 0) $return .= self::BUZZ;
+                $return = ($return) ? : $value;
+            } else {
+                $return = 'Number must be from 1 to 100';
+            }
+        } elseif ($value == '/start') {
+            $return = 'Please enter number from 1 to 100';
+        } else {
+            $return = 'You sent not number';
+        }
+        
+        return $return;
     }
 
 }

@@ -8,6 +8,7 @@
 
 namespace Donnie\TelegramBot;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class TelegramBotServiceProvider extends ServiceProvider
@@ -46,6 +47,11 @@ class TelegramBotServiceProvider extends ServiceProvider
     {
         $this->app['telegramBot'] = $this->app->share(function ($app) {
             return new TelegramBot();
+        });
+
+        $this->app->booting(function () {
+            $loader = AliasLoader::getInstance();
+            $loader->alias('LRedis', \Illuminate\Support\Facades\Redis::class);
         });
     }
 }
