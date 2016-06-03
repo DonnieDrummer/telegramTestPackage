@@ -34,7 +34,9 @@ class TelegramBot
     }
 
     /**
+     * Initialize webhook urk.
      *
+     * @return void.
      */
     public function initWebhook()
     {
