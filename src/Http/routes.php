@@ -7,9 +7,6 @@
  */
 
 Route::group(['prefix' => 'telegram', 'namespace' => 'Donnie\TelegramBot\Http\Controllers'], function () {
-    Route::post('/', [
-        'uses' => 'HomeController@getIndexAction'
-    ]);
-    
+    Route::post('/', 'HomeController@getIndexAction');
     Route::get('init-wh', ['as' => 'init', 'uses' => 'HomeController@getInitAction']);
 });
